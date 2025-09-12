@@ -9,8 +9,8 @@ function App () {
   return (
     <div className='bg-gray-300/30'>
       <Header />
-      <AddButton />
-      <Container className='flex flex-row flex-wrap justify-center items-center w-full py-[160px]'>
+      <Container className='flex flex-row flex-wrap justify-center items-center w-full py-[160px] gap-5'>
+        <AddButton />
         <Cards />
       </Container>
     </div>
