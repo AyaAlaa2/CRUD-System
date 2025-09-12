@@ -185,14 +185,6 @@
       "images": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/1.webp"
     },
     {
-      "id": "28",
-      "name": "Ice Cream",
-      "description": "Creamy and delicious ice cream, available in various flavors for a delightful treat.",
-      "category": "groceries",
-      "price": 5.49,
-      "images": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/1.webp"
-    },
-    {
       "id": "29",
       "name": "Juice",
       "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
