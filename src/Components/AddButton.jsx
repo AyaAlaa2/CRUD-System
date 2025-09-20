@@ -1,12 +1,26 @@
-import React from 'react'
-import { Button } from '@mui/material'
+import React, { useState } from "react";
+import { Button } from "@mui/material";
+import AddModal from "./AddModal";
+import { addProduct } from "./service";
 
-const AddButton = () => {
+const AddButton = ({ open, setOpen, handleAdd }) => {
+  const handleClose = () => setOpen(false);
   return (
-    <Button variant='contained' sx={{ width: '40%' }} color='success'>
-      Add Product
-    </Button>
-  )
-}
+    <>
+      <Button
+        variant="contained"
+        sx={{ width: "40%" }}
+        color="success"
+        onClick={() => setOpen(!open)}
+      >
+        Add Product
+      </Button>
 
-export default AddButton
+      {open && (
+        <AddModal open={open} handleClose={handleClose} onAdd={handleAdd} />
+      )}
+    </>
+  );
+};
+
+export default AddButton;

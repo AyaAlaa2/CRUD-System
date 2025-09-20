@@ -1,20 +1,18 @@
-import React from 'react'
-import './App.css'
-import Cards from './Components/Cards'
-import { Container } from '@mui/material'
-import Header from './Components/Header'
-import AddButton from './Components/AddButton'
+import React from "react";
+import "./App.css";
+import Cards from "./Components/Cards";
+import { Container } from "@mui/material";
+import Header from "./Components/Header";
 
-function App () {
+function App() {
   return (
-    <div className='bg-gray-300/30'>
+    <div className="bg-gray-300/30">
       <Header />
-      <Container className='flex flex-row flex-wrap justify-center items-center w-full py-[160px] gap-5'>
-        <AddButton />
+      <Container>
         <Cards />
       </Container>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
