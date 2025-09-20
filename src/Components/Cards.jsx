@@ -19,15 +19,15 @@ export default function Cards() {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(0);
 
-  useEffect(() => {
-    loadProducts();
-  }, []);
-
   // Fetch Data
   const loadProducts = async () => {
     const products = await fetchProducts();
     setCards(products);
   };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   // Delete Data
   const handleDelete = async (id) => {

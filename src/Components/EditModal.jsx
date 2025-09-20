@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { fetchProduct } from "./service";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { fetchProduct } from "./service";
 
 export default function EditModal({ open, handleClose, onSave, id }) {
   const updateSchema = z.object({

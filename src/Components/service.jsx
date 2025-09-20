@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5000/products";
 
+//fetch all product
 export const fetchProducts = async () => {
   try {
     const response = await axios.get(API_URL);
@@ -11,6 +12,7 @@ export const fetchProducts = async () => {
   }
 };
 
+//fetch product using current id
 export const fetchProduct = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
@@ -20,6 +22,7 @@ export const fetchProduct = async (id) => {
   }
 };
 
+// delete product
 export const deleteProduct = async (id) => {
   try {
     await axios.delete(`${API_URL}/${id}`);
@@ -29,6 +32,7 @@ export const deleteProduct = async (id) => {
   }
 };
 
+// update product
 export const updateProduct = async (id, data) => {
   try {
     await axios.put(`${API_URL}/${id}`, data);
@@ -38,6 +42,7 @@ export const updateProduct = async (id, data) => {
   }
 };
 
+// add product
 export const addProduct = async (id, data) => {
   try {
     await axios.post(`${API_URL}`, { id, ...data });
