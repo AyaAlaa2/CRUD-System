@@ -12,25 +12,15 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { fetchProduct } from "./service";
+import productSchema from "./validationProductData";
 
 export default function EditModal({ open, handleClose, onSave, id }) {
-  const updateSchema = z.object({
-    name: z.string().min(4, "Name must be at least 4 characters long"),
-    description: z
-      .string()
-      .min(10, "Description must be at least 10 characters long"),
-    category: z.string().min(5, "Category must be at least 5 characters long"),
-    price: z.coerce
-      .number({ invalid_type_error: "Price must be a number" })
-      .positive("Price must be greater than 0"),
-    images: z.string().url("Image must be a valid URL"),
-  });
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ mode: "onBlur", resolver: zodResolver(updateSchema) });
+  } = useForm({ mode: "onBlur", resolver: zodResolver(productSchema) });
 
   const handleProduct = useCallback(async () => {
     const currentProduct = await fetchProduct(id);
@@ -85,12 +75,7 @@ export default function EditModal({ open, handleClose, onSave, id }) {
             <div className="flex flex-col gap-3">
               <div className="flex flex-row items-center gap-5">
                 <label className="flex items-center w-[18%]">Price:</label>
-                <Input
-                  type="number"
-                  name="price"
-                  {...register("price")}
-                  fullWidth
-                />
+                <Input name="price" {...register("price")} fullWidth />
               </div>
               {errors.price && (
                 <p className="text-red-500">{errors.price.message}</p>
